@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<view class="container">
+
+    <!-- 首图 -->
+    <view class="output-img-view" style="">
+        <image
+            class="output-img"
+            src="{{imgUrl}}"
+            data-src = "{{imgUrl}}"
+            style="width: {{imageW}}px;height:{{imageH}}px;"
+            bindtap="previewOutputImage"
+        ></image>
+    </view>
+    <view class="weui-cells weui-cells weui-cells_form" style="width:100%">
+        <view class="weui-cell">
+            <view style="margin-top:-10px">
+              <radio-group class="radio-group" bindchange="fontRadioChange">
+                <label class="radio" wx:for="{{colorList}}" wx:key="{{item}}">
+                  <radio value="{{item.value}}" checked="{{item.checked}}"/><image
+            src = "{{item.img}}"
+            data-src = "{{item.img}}"
+            style="width: 36px;height:30px;position: relative;left: 0;top: 10px;"></image>
+                </label>
+              </radio-group>
+
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <textarea class="weui-textarea input-font-font" placeholder="请输入要生成表情的文字..." auto-height="true" bindinput ="getUserInput"></textarea>
+            </view>
+        </view>
+    </view>
+
+    <!-- 生成输入框 -->
+    <view class="page__bd input-text-view">
+     <!--  <view class="weui-cells__title">点击长按【发送给朋友】</view>
+      <view class="weui-cells weui-cells weui-cells_form">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <textarea class="weui-textarea input-font-font" placeholder="请输入要生成表情的文字..." auto-height="true" bindinput ="getUserInput"></textarea>
+            </view>
+        </view>
+      </view> -->
+      <!-- <view class="weui-cells__tips">生成后，长按发送给朋友</view> -->
+      <!-- <view class="weui-cells__title">换一种字体</view> -->
+      
+      <view class="weui-btn-area">
+        <button class="input-font-button weui-btn weui-btn_primary" bindtap="getFontImg" type="primary">生成文字表情</button>
+      </view>
+      <view class="weui-cells__title" style="text-align:center;font-size:16px">生成后，点击上方图片，长按发送给朋友</view>
+      <view class="weui-btn-area">
+        <button class="weui-btn weui-btn_fenxiang" style="background-color: #fff;color: #1aad19;float:left;" type="primary" bindtap="appreciates" >打赏一毛钱</button>
+        <button class="weui-btn weui-btn_fenxiang" style="background-color: #fff;color: #1aad19;float:right;" bindtap="onShareAppMessage" type="primary" open-type="share" data-name="pageShare">分享小程序</button>
+      </view>
+      <!-- <view class="weui-cells__title">换一种字体</view> -->
+      <!-- <view class="weui-cells weui-cells_form">
+            <view class="weui-cell weui-cell_switch">
+                <view class="weui-cell__bd">标题文字</view>
+                <view class="weui-cell__ft">
+                    <input class="weui-switch" type="checkbox" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_switch">
+                <view class="weui-cell__bd">兼容IE Edge的版本</view>
+                <view class="weui-cell__ft">
+                    <label for="switchCP" class="weui-switch-cp">
+                        <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked" />
+                        <view class="weui-switch-cp__box"></view>
+                    </label>
+                </view>
+            </view>
+      </view> -->
+    </view>
+
+</view>
